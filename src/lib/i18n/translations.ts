@@ -93,8 +93,11 @@ export const translations: Record<Lang, Record<string, string>> = {
 		'contact.message': 'メッセージ',
 		'contact.submit': '送信する',
 		'contact.info.title': 'お問い合わせ先',
-		'contact.info.email': 'contact@kardashev.systems',
+		'contact.info.email': 'mail@kardashev.systems',
 		'contact.info.location': '東京都渋谷区',
+		'contact.success.title': '送信完了',
+		'contact.success.desc': 'お問い合わせありがとうございます。担当者より折り返しご連絡いたします。',
+		'contact.success.another': '新しいメッセージを送信',
 
 		// Footer
 		'footer.tagline': 'AIで、すべての仕事を再定義する',
@@ -197,8 +200,11 @@ export const translations: Record<Lang, Record<string, string>> = {
 		'contact.message': 'Message',
 		'contact.submit': 'Send Message',
 		'contact.info.title': 'Get in Touch',
-		'contact.info.email': 'contact@kardashev.systems',
+		'contact.info.email': 'mail@kardashev.systems',
 		'contact.info.location': 'Shibuya, Tokyo',
+		'contact.success.title': 'Message Sent',
+		'contact.success.desc': 'Thank you for reaching out. We\'ll get back to you shortly.',
+		'contact.success.another': 'Send Another Message',
 
 		// Footer
 		'footer.tagline': 'Redefining Every Job with AI',

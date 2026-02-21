@@ -1,6 +1,37 @@
 <script lang="ts">
 	import { t } from '$lib/stores/lang';
 	import { inview } from '$lib/actions/inview';
+
+	let submitted = $state(false);
+	let submitting = $state(false);
+
+	async function handleSubmit(e: SubmitEvent) {
+		e.preventDefault();
+		submitting = true;
+		const form = e.target as HTMLFormElement;
+		const data = new FormData(form);
+
+		try {
+			const res = await fetch('https://formsubmit.co/ajax/mail@kardashev.systems', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+				body: JSON.stringify(Object.fromEntries(data))
+			});
+			if (res.ok) {
+				submitted = true;
+				form.reset();
+			}
+		} catch {
+			// Fallback: open mailto
+			const name = data.get('name');
+			const email = data.get('email');
+			const company = data.get('company');
+			const message = data.get('message');
+			window.location.href = `mailto:mail@kardashev.systems?subject=Contact from ${name} (${company})&body=${message}%0A%0AFrom: ${name} <${email}>`;
+		} finally {
+			submitting = false;
+		}
+	}
 </script>
 
 <section id="contact" class="contact">
@@ -12,30 +43,43 @@
 		</div>
 
 		<div class="contact-grid" use:inview>
-			<form class="contact-form" onsubmit={(e) => e.preventDefault()}>
-				<div class="form-row">
-					<div class="form-group">
-						<label for="name">{$t['contact.name']}</label>
-						<input id="name" type="text" required />
+			{#if submitted}
+				<div class="success-message">
+					<div class="success-icon">✓</div>
+					<h3>{$t['contact.success.title']}</h3>
+					<p>{$t['contact.success.desc']}</p>
+					<button class="submit-btn" onclick={() => submitted = false}>
+						{$t['contact.success.another']}
+					</button>
+				</div>
+			{:else}
+				<form class="contact-form" onsubmit={handleSubmit}>
+					<input type="hidden" name="_subject" value="New contact from kardashev.systems" />
+					<input type="text" name="_honey" style="display:none" />
+					<div class="form-row">
+						<div class="form-group">
+							<label for="name">{$t['contact.name']}</label>
+							<input id="name" name="name" type="text" required />
+						</div>
+						<div class="form-group">
+							<label for="email">{$t['contact.email']}</label>
+							<input id="email" name="email" type="email" required />
+						</div>
 					</div>
 					<div class="form-group">
-						<label for="email">{$t['contact.email']}</label>
-						<input id="email" type="email" required />
+						<label for="company">{$t['contact.company']}</label>
+						<input id="company" name="company" type="text" />
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="company">{$t['contact.company']}</label>
-					<input id="company" type="text" />
-				</div>
-				<div class="form-group">
-					<label for="message">{$t['contact.message']}</label>
-					<textarea id="message" rows="5" required></textarea>
-				</div>
-				<button type="submit" class="submit-btn">
-					{$t['contact.submit']}
-					<span class="btn-arrow">→</span>
-				</button>
-			</form>
+					<div class="form-group">
+						<label for="message">{$t['contact.message']}</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+					</div>
+					<button type="submit" class="submit-btn" disabled={submitting}>
+						{submitting ? '...' : $t['contact.submit']}
+						{#if !submitting}<span class="btn-arrow">→</span>{/if}
+					</button>
+				</form>
+			{/if}
 
 			<div class="contact-info">
 				<h3 class="info-title">{$t['contact.info.title']}</h3>
@@ -46,7 +90,7 @@
 							<polyline points="22,6 12,13 2,6"/>
 						</svg>
 					</span>
-					<span class="info-text">{$t['contact.info.email']}</span>
+					<a href="mailto:mail@kardashev.systems" class="info-text">{$t['contact.info.email']}</a>
 				</div>
 				<div class="info-item">
 					<span class="info-icon">
@@ -102,6 +146,46 @@
 	:global(.contact-grid.in-view) {
 		opacity: 1;
 		transform: translateY(0);
+	}
+
+	.success-message {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 3rem 2rem;
+		background: rgba(0, 212, 255, 0.03);
+		border: 1px solid rgba(0, 212, 255, 0.15);
+		border-radius: 12px;
+	}
+
+	.success-icon {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: linear-gradient(135deg, #00d4ff, #0088cc);
+		color: #0a0a0f;
+		font-size: 1.5rem;
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.success-message h3 {
+		font-family: 'Noto Sans JP', 'Space Grotesk', sans-serif;
+		font-size: 1.3rem;
+		color: #e0e0f0;
+		margin-bottom: 0.5rem;
+	}
+
+	.success-message p {
+		font-family: 'Noto Sans JP', 'Inter', sans-serif;
+		font-size: 0.9rem;
+		color: #808090;
+		margin-bottom: 1.5rem;
 	}
 
 	.form-row {
@@ -173,6 +257,12 @@
 		box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
 	}
 
+	.submit-btn:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+		transform: none;
+	}
+
 	.btn-arrow {
 		transition: transform 0.2s ease;
 	}
@@ -217,6 +307,11 @@
 		font-family: 'Inter', 'Noto Sans JP', sans-serif;
 		font-size: 0.9rem;
 		color: #a0a0b0;
+		text-decoration: none;
+	}
+
+	a.info-text:hover {
+		color: #00d4ff;
 	}
 
 	.info-decoration {

@@ -38,6 +38,10 @@
 				</div>
 			{/each}
 		</div>
+
+		<div class="scale-image" use:inview>
+			<img src="/images/kardashev_scale.png" alt="Kardashev Scale visualization" />
+		</div>
 	</div>
 </section>
 
@@ -199,5 +203,26 @@
 		.card-title {
 			font-size: 1.1rem;
 		}
+	}
+
+	.scale-image {
+		margin-top: 3rem;
+		text-align: center;
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+		transition-delay: 450ms;
+	}
+
+	:global(.scale-image.in-view) {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.scale-image img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.06);
 	}
 </style>

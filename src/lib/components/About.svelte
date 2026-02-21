@@ -8,7 +8,6 @@
 		{ key: 'value3', icon: '△' }
 	];
 
-	const members = ['member1', 'member2', 'member3'];
 </script>
 
 <section id="about" class="about">
@@ -29,17 +28,6 @@
 			{/each}
 		</div>
 
-		<div class="team-grid" use:inview>
-			{#each members as member}
-				<div class="team-card">
-					<div class="avatar">
-						<span class="avatar-initial">{$t[`about.${member}.name`][0]}</span>
-					</div>
-					<h4 class="member-name">{$t[`about.${member}.name`]}</h4>
-					<p class="member-role">{$t[`about.${member}.role`]}</p>
-				</div>
-			{/each}
-		</div>
 	</div>
 </section>
 
@@ -119,59 +107,12 @@
 		line-height: 1.7;
 	}
 
-	.team-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1.5rem;
-		opacity: 0;
-		transform: translateY(30px);
-		transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-		transition-delay: 200ms;
-	}
 
-	:global(.team-grid.in-view) {
-		opacity: 1;
-		transform: translateY(0);
-	}
 
-	.team-card {
-		text-align: center;
-		padding: 2rem;
-	}
 
-	.avatar {
-		width: 64px;
-		height: 64px;
-		border-radius: 50%;
-		border: 1px solid rgba(0, 212, 255, 0.3);
-		background: rgba(0, 212, 255, 0.05);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin: 0 auto 1rem;
-	}
 
-	.avatar-initial {
-		font-family: 'Space Grotesk', monospace;
-		font-size: 1.2rem;
-		font-weight: 600;
-		color: #00d4ff;
-	}
 
-	.member-name {
-		font-family: 'Noto Sans JP', 'Inter', sans-serif;
-		font-size: 0.95rem;
-		font-weight: 500;
-		color: #e0e0f0;
-		margin-bottom: 0.25rem;
-	}
 
-	.member-role {
-		font-family: 'Inter', 'Noto Sans JP', sans-serif;
-		font-size: 0.8rem;
-		font-weight: 300;
-		color: #606070;
-	}
 
 	@media (max-width: 768px) {
 		.about {
@@ -182,9 +123,5 @@
 			grid-template-columns: 1fr;
 		}
 
-		.team-grid {
-			grid-template-columns: 1fr;
-			gap: 0.5rem;
-		}
 	}
 </style>

@@ -95,6 +95,11 @@ a {
   z-index: 2;
 }
 
+.turn .front-lang-toggle {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .flip-card-front::before {
   content: "";
   position: absolute;
@@ -461,13 +466,23 @@ html:has(.privacy-page) body::-webkit-scrollbar {
     padding: 28px;
   }
 
+  .flip-card-front::before {
+    inset: 14px;
+  }
+
   .front-lang-toggle {
     top: 18px;
     right: 18px;
   }
 
+  .hero-mark {
+    width: 100%;
+    max-width: none;
+    padding: 0 8px;
+  }
+
   .panel {
-    padding: 22px;
+    padding: 18px;
   }
 
   .panel-header {
@@ -481,10 +496,20 @@ html:has(.privacy-page) body::-webkit-scrollbar {
 
   .panel-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .info-card-wide {
     grid-column: span 1;
+  }
+
+  .info-card {
+    padding: 18px;
+  }
+
+  .info-card p,
+  .info-card li {
+    font-size: 0.94rem;
   }
 
   .heading {

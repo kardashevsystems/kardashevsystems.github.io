@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -8,7 +8,7 @@
     />
     <meta
       name="description"
-      content="Kardashev Systems is an AI automation company building autonomous systems to automate work, increase economic efficiency, and move civilization up the Kardashev Scale."
+      content="Kardashev Systemsは、AIで労働を自動化し、経済効率を高め、文明をカルダシェフ・スケールの次の段階へ押し上げるための自律システムを構築しています。"
     />
     <meta name="theme-color" content="#050608" />
     <meta name="author" content="Kardashev Systems" />
@@ -19,14 +19,14 @@
     <meta property="og:title" content="Kardashev Systems — AI automation company" />
     <meta
       property="og:description"
-      content="AI automation systems designed to take over real work and accelerate civilization."
+      content="AIで実務を引き受け、文明の加速を目指す自動化システム。"
     />
     <meta property="og:url" content="https://kardashev.systems/" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Kardashev Systems — AI automation company" />
     <meta
       name="twitter:description"
-      content="AI automation systems designed to take over real work and accelerate civilization."
+      content="AIで実務を引き受け、文明の加速を目指す自動化システム。"
     />
 
     <link rel="icon" type="image/png" href="static/img/star.png" />
@@ -46,17 +46,20 @@
             class="flip-card-front"
             tabindex="0"
             role="button"
-            aria-label="Open Kardashev Systems company information"
+            aria-label="カルダシェフ・システムズの会社情報を開く"
           >
+            <button id="front-lang-toggle" class="lang-toggle front-lang-toggle" type="button">
+              EN
+            </button>
             <div class="hero-mark">
-              <p class="eyebrow">カルダシェフ・システムズ | AI automation company</p>
+              <p id="front-eyebrow" class="eyebrow">カルダシェフ・システムズ | AI automation company</p>
               <h1 id="heading" class="heading">KARDASHEV</h1>
-              <p class="hero-copy">
-                Kardashev Systems builds autonomous AI systems to automate
-                work, increase economic efficiency, and help move civilization
-                up the Kardashev Scale.
+              <p id="hero-copy" class="hero-copy">
+                Kardashev Systemsは、労働を自動化し、経済効率を高め、
+                文明をカルダシェフ・スケールの次の段階へ押し上げるための
+                自律型AIシステムを構築しています。
               </p>
-              <p class="hero-hint">Tap or click to view company details</p>
+              <p id="hero-hint" class="hero-hint">クリックまたはタップで会社情報を表示</p>
               <p class="card-meta">© 2026 Kardashev Systems · kardashev.systems</p>
             </div>
           </article>
@@ -65,114 +68,126 @@
             <div class="panel">
               <header class="panel-header">
                 <div>
-                  <p class="eyebrow">Company overview</p>
+                  <p id="panel-eyebrow" class="eyebrow">会社概要</p>
                   <h2 class="panel-title">KARDASHEV SYSTEMS</h2>
                 </div>
-                <button
-                  id="close-card"
-                  class="ghost-button"
-                  type="button"
-                  aria-label="Close company information"
-                >
-                  Close
-                </button>
+                <div class="panel-controls">
+                  <button id="panel-lang-toggle" class="lang-toggle" type="button">EN</button>
+                  <button
+                    id="close-card"
+                    class="ghost-button"
+                    type="button"
+                    aria-label="閉じる"
+                  >
+                    <span id="close-label">閉じる</span>
+                  </button>
+                </div>
               </header>
 
               <nav class="panel-nav" aria-label="Company sections">
-                <a href="#about" class="nav-pill">About</a>
-                <a href="#mission" class="nav-pill">Mission</a>
-                <a href="#systems" class="nav-pill">Systems</a>
-                <a href="#scale" class="nav-pill">Scale</a>
-                <a href="#contact" class="nav-pill">Contact</a>
+                <a href="#about" id="nav-about" class="nav-pill">会社概要</a>
+                <a href="#mission" id="nav-mission" class="nav-pill">ミッション</a>
+                <a href="#systems" id="nav-systems" class="nav-pill">システム</a>
+                <a href="#scale" id="nav-scale" class="nav-pill">スケール</a>
+                <a href="#contact" id="nav-contact" class="nav-pill">お問い合わせ</a>
               </nav>
 
               <div class="panel-grid">
                 <section id="about" class="info-card info-card-wide">
-                  <h3>About</h3>
-                  <p>
-                    Kardashev Systems is an AI automation company focused on
-                    replacing human labor with capable autonomous systems. We
-                    build software that can operate workflows, make decisions,
-                    and carry out meaningful work with minimal human
-                    intervention.
+                  <h3 id="about-title">会社概要</h3>
+                  <p id="about-p1">
+                    Kardashev Systemsは、東京に本社を置きサンフランシスコにも
+                    プレゼンスを持つ日米スタートアップです。人間の労働を
+                    高度な自律システムで置き換えることに特化した
+                    AIオートメーション企業として、ワークフローを運用し、
+                    判断し、実務を遂行するソフトウェアを構築しています。
                   </p>
-                  <p>
-                    The company is intentionally lean and stealth-oriented. The
-                    aim is not incremental tooling, but systems-level leverage:
-                    using AI to reshape how work gets done across the economy.
+                  <p id="about-p2">
+                    会社は意図的にリーンでステルス志向です。目指しているのは
+                    小さな改善ではなく、経済全体で仕事のあり方を再構成する
+                    システムレベルのレバレッジです。
                   </p>
                 </section>
 
                 <section id="mission" class="info-card">
-                  <h3>Mission</h3>
-                  <p>
-                    Our mission is to automate all human labor with AI. Not
-                    only repetitive tasks, but analysis, coordination,
-                    decision-making, and complex operational work.
+                  <h3 id="mission-title">ミッション</h3>
+                  <p id="mission-p1">
+                    私たちのミッションは、AIであらゆる人間の労働を自動化することです。
+                    単純作業だけでなく、分析、調整、意思決定、複雑なオペレーションまで含みます。
                   </p>
-                  <p>
-                    As labor becomes software, the economy becomes more
-                    efficient. Greater efficiency means better use of energy,
-                    resources, and human attention.
+                  <p id="mission-p2">
+                    労働がソフトウェアになると、経済はより効率的になります。
+                    効率化は、エネルギー、資源、人間の注意をより良く使うことにつながります。
                   </p>
                 </section>
 
                 <section id="systems" class="info-card">
-                  <h3>Systems</h3>
+                  <h3 id="systems-title">システム</h3>
                   <ul>
-                    <li>End-to-end AI workflow automation</li>
-                    <li>Autonomous decision and planning systems</li>
-                    <li>Operational intelligence and forecasting</li>
-                    <li>Economic efficiency optimization at system scale</li>
+                    <li id="systems-li1">エンドツーエンドのAIワークフロー自動化</li>
+                    <li id="systems-li2">自律的な意思決定・計画システム</li>
+                    <li id="systems-li3">オペレーショナル・インテリジェンスと予測</li>
+                    <li id="systems-li4">システム規模での経済効率最適化</li>
                   </ul>
                 </section>
 
                 <section id="scale" class="info-card">
-                  <h3>Kardashev Scale</h3>
-                  <p>
-                    We take the Kardashev Scale seriously as a directional
-                    framework. A civilization advances by harnessing more
-                    energy effectively, and economic automation is one of the
-                    clearest paths upward.
+                  <h3 id="scale-title">カルダシェフ・スケール</h3>
+                  <p id="scale-p1">
+                    私たちは、カルダシェフ・スケールを文明の方向性を示す
+                    フレームワークとして本気で捉えています。文明は、
+                    より多くのエネルギーを効果的に利用することで前進し、
+                    経済の自動化はその最短経路のひとつです。
                   </p>
-                  <p>
-                    Type I begins with planetary efficiency. AI systems that
-                    eliminate waste and accelerate coordination are part of the
-                    infrastructure that gets us there.
+                  <p id="scale-p2">
+                    Type I は惑星規模の効率から始まります。無駄を減らし、
+                    調整を加速するAIシステムは、そこへ到達するための
+                    インフラの一部です。
                   </p>
-                  <p class="fine-print">
-                    Type I: planetary. Type II: stellar. Type III: galactic.
+                  <p id="scale-fine" class="fine-print">
+                    Type I: 惑星文明。Type II: 恒星文明。Type III: 銀河文明。
                   </p>
                 </section>
 
                 <section class="info-card">
-                  <h3>Principles</h3>
+                  <h3 id="principles-title">原則</h3>
                   <ul>
-                    <li>Bold civilizational ambition</li>
-                    <li>Technical excellence in deployed systems</li>
-                    <li>Automation that compounds, not demos that impress</li>
-                    <li>Stealth, focus, and long time horizons</li>
+                    <li id="principles-li1">文明レベルの大胆な野心</li>
+                    <li id="principles-li2">実運用システムにおける技術的卓越性</li>
+                    <li id="principles-li3">見せるだけのデモではなく、複利で効く自動化</li>
+                    <li id="principles-li4">ステルス、集中、長期的時間軸</li>
                   </ul>
                 </section>
 
-                <section class="info-card">
-                  <h3>Company</h3>
-                  <p>
-                    Kardashev Systems operates as an independent AI company
-                    building automation infrastructure and related digital
-                    systems.
+                <section class="info-card" id="company">
+                  <h3 id="company-title">会社</h3>
+                  <p id="company-p1">
+                    Kardashev Systemsは、オートメーション基盤と関連デジタルシステムを
+                    構築する独立系AI企業として運営されています。
                   </p>
-                  <p class="fine-print">
-                    Additional information about specific deployments and
-                    partnerships is shared selectively.
+                  <p id="company-fine" class="fine-print">
+                    個別の導入や提携に関する追加情報は、必要に応じて選択的に共有します。
+                  </p>
+                </section>
+
+                <section class="info-card" id="team">
+                  <h3 id="team-title">チーム</h3>
+                  <p id="team-p1">
+                    私たちは、アイビーリーグのトップ研究機関や
+                    シリコンバレーの主要テクノロジー企業出身の、
+                    経験豊富な研究者とエンジニアによる専任チームを擁しています。
+                  </p>
+                  <p id="team-p2" class="fine-print">
+                    拠点は東京ですが、チームは国際的です。業界のベテランと
+                    実績ある科学者が、国境をまたいで協働しています。
                   </p>
                 </section>
 
                 <section id="contact" class="info-card info-card-wide">
-                  <h3>Contact</h3>
-                  <p>
-                    For business inquiries, partnerships, or serious
-                    conversations about AI automation, reach us by email.
+                  <h3 id="contact-title">お問い合わせ</h3>
+                  <p id="contact-p1">
+                    事業提携、パートナーシップ、あるいはAIオートメーションに関する
+                    真剣なご相談は、メールでご連絡ください。
                   </p>
                   <p class="contact-line">
                     <a href="mailto:mail@kardashev.systems">mail@kardashev.systems</a>
@@ -196,6 +211,201 @@
       const flipCard = document.getElementById("flip-card");
       const frontCard = document.getElementById("flip-card-front");
       const closeCard = document.getElementById("close-card");
+      const frontLangToggle = document.getElementById("front-lang-toggle");
+      const panelLangToggle = document.getElementById("panel-lang-toggle");
+
+      const copy = {
+        ja: {
+          lang: "ja",
+          metaDescription:
+            "Kardashev Systemsは、AIで労働を自動化し、経済効率を高め、文明をカルダシェフ・スケールの次の段階へ押し上げるための自律システムを構築しています。",
+          socialDescription: "AIで実務を引き受け、文明の加速を目指す自動化システム。",
+          title: "Kardashev Systems — AI automation company",
+          frontEyebrow: "カルダシェフ・システムズ | AI automation company",
+          heroCopy:
+            "Kardashev Systemsは、労働を自動化し、経済効率を高め、文明をカルダシェフ・スケールの次の段階へ押し上げるための自律型AIシステムを構築しています。",
+          heroHint: "クリックまたはタップで会社情報を表示",
+          panelEyebrow: "会社概要",
+          closeLabel: "閉じる",
+          closeAria: "閉じる",
+          frontAria: "カルダシェフ・システムズの会社情報を開く",
+          navAbout: "会社概要",
+          navMission: "ミッション",
+          navSystems: "システム",
+          navScale: "スケール",
+          navContact: "お問い合わせ",
+          aboutTitle: "会社概要",
+          aboutP1:
+            "Kardashev Systemsは、東京に本社を置きサンフランシスコにもプレゼンスを持つ日米スタートアップです。人間の労働を高度な自律システムで置き換えることに特化したAIオートメーション企業として、ワークフローを運用し、判断し、実務を遂行するソフトウェアを構築しています。",
+          aboutP2:
+            "会社は意図的にリーンでステルス志向です。目指しているのは小さな改善ではなく、経済全体で仕事のあり方を再構成するシステムレベルのレバレッジです。",
+          missionTitle: "ミッション",
+          missionP1:
+            "私たちのミッションは、AIであらゆる人間の労働を自動化することです。単純作業だけでなく、分析、調整、意思決定、複雑なオペレーションまで含みます。",
+          missionP2:
+            "労働がソフトウェアになると、経済はより効率的になります。効率化は、エネルギー、資源、人間の注意をより良く使うことにつながります。",
+          systemsTitle: "システム",
+          systemsLi1: "エンドツーエンドのAIワークフロー自動化",
+          systemsLi2: "自律的な意思決定・計画システム",
+          systemsLi3: "オペレーショナル・インテリジェンスと予測",
+          systemsLi4: "システム規模での経済効率最適化",
+          scaleTitle: "カルダシェフ・スケール",
+          scaleP1:
+            "私たちは、カルダシェフ・スケールを文明の方向性を示すフレームワークとして本気で捉えています。文明は、より多くのエネルギーを効果的に利用することで前進し、経済の自動化はその最短経路のひとつです。",
+          scaleP2:
+            "Type I は惑星規模の効率から始まります。無駄を減らし、調整を加速するAIシステムは、そこへ到達するためのインフラの一部です。",
+          scaleFine: "Type I: 惑星文明。Type II: 恒星文明。Type III: 銀河文明。",
+          principlesTitle: "原則",
+          principlesLi1: "文明レベルの大胆な野心",
+          principlesLi2: "実運用システムにおける技術的卓越性",
+          principlesLi3: "見せるだけのデモではなく、複利で効く自動化",
+          principlesLi4: "ステルス、集中、長期的時間軸",
+          companyTitle: "会社",
+          companyP1:
+            "Kardashev Systemsは、オートメーション基盤と関連デジタルシステムを構築する独立系AI企業として運営されています。",
+          companyFine:
+            "個別の導入や提携に関する追加情報は、必要に応じて選択的に共有します。",
+          teamTitle: "チーム",
+          teamP1:
+            "私たちは、アイビーリーグのトップ研究機関やシリコンバレーの主要テクノロジー企業出身の、経験豊富な研究者とエンジニアによる専任チームを擁しています。",
+          teamP2:
+            "拠点は東京ですが、チームは国際的です。業界のベテランと実績ある科学者が、国境をまたいで協働しています。",
+          contactTitle: "お問い合わせ",
+          contactP1:
+            "事業提携、パートナーシップ、あるいはAIオートメーションに関する真剣なご相談は、メールでご連絡ください。"
+        },
+        en: {
+          lang: "en",
+          metaDescription:
+            "Kardashev Systems is an AI automation company building autonomous systems to automate work, increase economic efficiency, and move civilization up the Kardashev Scale.",
+          socialDescription:
+            "AI automation systems designed to take over real work and accelerate civilization.",
+          title: "Kardashev Systems — AI automation company",
+          frontEyebrow: "KARDASHEV SYSTEMS | AI automation company",
+          heroCopy:
+            "Kardashev Systems builds autonomous AI systems to automate work, increase economic efficiency, and help move civilization up the Kardashev Scale.",
+          heroHint: "Tap or click to view company details",
+          panelEyebrow: "Company overview",
+          closeLabel: "Close",
+          closeAria: "Close company information",
+          frontAria: "Open Kardashev Systems company information",
+          navAbout: "About",
+          navMission: "Mission",
+          navSystems: "Systems",
+          navScale: "Scale",
+          navContact: "Contact",
+          aboutTitle: "About",
+          aboutP1:
+            "Kardashev Systems is a Japanese-American startup with headquarters in Tokyo and a presence in San Francisco. We are an AI automation company focused on replacing human labor with capable autonomous systems that can operate workflows, make decisions, and carry out meaningful work.",
+          aboutP2:
+            "The company is intentionally lean and stealth-oriented. The aim is not incremental tooling, but systems-level leverage: using AI to reshape how work gets done across the economy.",
+          missionTitle: "Mission",
+          missionP1:
+            "Our mission is to automate all human labor with AI. Not only repetitive tasks, but analysis, coordination, decision-making, and complex operational work.",
+          missionP2:
+            "As labor becomes software, the economy becomes more efficient. Greater efficiency means better use of energy, resources, and human attention.",
+          systemsTitle: "Systems",
+          systemsLi1: "End-to-end AI workflow automation",
+          systemsLi2: "Autonomous decision and planning systems",
+          systemsLi3: "Operational intelligence and forecasting",
+          systemsLi4: "Economic efficiency optimization at system scale",
+          scaleTitle: "Kardashev Scale",
+          scaleP1:
+            "We take the Kardashev Scale seriously as a directional framework. A civilization advances by harnessing more energy effectively, and economic automation is one of the clearest paths upward.",
+          scaleP2:
+            "Type I begins with planetary efficiency. AI systems that eliminate waste and accelerate coordination are part of the infrastructure that gets us there.",
+          scaleFine: "Type I: planetary. Type II: stellar. Type III: galactic.",
+          principlesTitle: "Principles",
+          principlesLi1: "Bold civilizational ambition",
+          principlesLi2: "Technical excellence in deployed systems",
+          principlesLi3: "Automation that compounds, not demos that impress",
+          principlesLi4: "Stealth, focus, and long time horizons",
+          companyTitle: "Company",
+          companyP1:
+            "Kardashev Systems operates as an independent AI company building automation infrastructure and related digital systems.",
+          companyFine:
+            "Additional information about specific deployments and partnerships is shared selectively.",
+          teamTitle: "Team",
+          teamP1:
+            "We have a dedicated team of researchers and engineers from top Ivy League institutions and Silicon Valley technology companies, including industry veterans and accomplished scientists.",
+          teamP2: "We are based in Tokyo, but our team is international.",
+          contactTitle: "Contact",
+          contactP1:
+            "For business inquiries, partnerships, or serious conversations about AI automation, reach us by email."
+        }
+      };
+
+      const textMap = {
+        frontEyebrow: "front-eyebrow",
+        heroCopy: "hero-copy",
+        heroHint: "hero-hint",
+        panelEyebrow: "panel-eyebrow",
+        closeLabel: "close-label",
+        navAbout: "nav-about",
+        navMission: "nav-mission",
+        navSystems: "nav-systems",
+        navScale: "nav-scale",
+        navContact: "nav-contact",
+        aboutTitle: "about-title",
+        aboutP1: "about-p1",
+        aboutP2: "about-p2",
+        missionTitle: "mission-title",
+        missionP1: "mission-p1",
+        missionP2: "mission-p2",
+        systemsTitle: "systems-title",
+        systemsLi1: "systems-li1",
+        systemsLi2: "systems-li2",
+        systemsLi3: "systems-li3",
+        systemsLi4: "systems-li4",
+        scaleTitle: "scale-title",
+        scaleP1: "scale-p1",
+        scaleP2: "scale-p2",
+        scaleFine: "scale-fine",
+        principlesTitle: "principles-title",
+        principlesLi1: "principles-li1",
+        principlesLi2: "principles-li2",
+        principlesLi3: "principles-li3",
+        principlesLi4: "principles-li4",
+        companyTitle: "company-title",
+        companyP1: "company-p1",
+        companyFine: "company-fine",
+        teamTitle: "team-title",
+        teamP1: "team-p1",
+        teamP2: "team-p2",
+        contactTitle: "contact-title",
+        contactP1: "contact-p1"
+      };
+
+      function setLanguage(lang) {
+        const selected = copy[lang];
+        document.documentElement.lang = selected.lang;
+        document.title = selected.title;
+        document
+          .querySelector('meta[name="description"]')
+          .setAttribute("content", selected.metaDescription);
+        document
+          .querySelector('meta[property="og:description"]')
+          .setAttribute("content", selected.socialDescription);
+        document
+          .querySelector('meta[name="twitter:description"]')
+          .setAttribute("content", selected.socialDescription);
+
+        Object.keys(textMap).forEach(function (key) {
+          document.getElementById(textMap[key]).textContent = selected[key];
+        });
+
+        closeCard.setAttribute("aria-label", selected.closeAria);
+        frontCard.setAttribute("aria-label", selected.frontAria);
+        frontLangToggle.textContent = lang === "ja" ? "EN" : "JP";
+        panelLangToggle.textContent = lang === "ja" ? "EN" : "JP";
+        localStorage.setItem("kardashev-lang", lang);
+      }
+
+      function toggleLanguage(event) {
+        event.stopPropagation();
+        const current = document.documentElement.lang === "ja" ? "ja" : "en";
+        setLanguage(current === "ja" ? "en" : "ja");
+      }
 
       function openCard() {
         flipCard.classList.add("turn");
@@ -214,6 +424,8 @@
       });
 
       closeCard.addEventListener("click", closePanel);
+      frontLangToggle.addEventListener("click", toggleLanguage);
+      panelLangToggle.addEventListener("click", toggleLanguage);
 
       document.addEventListener("click", function (event) {
         if (!flipCard.classList.contains("turn")) return;
@@ -237,6 +449,8 @@
 
       window.addEventListener("orientationchange", updateOrientation, false);
       window.addEventListener("resize", updateOrientation, false);
+
+      setLanguage(localStorage.getItem("kardashev-lang") || "ja");
     </script>
     <script src="static/js/stars.js"></script>
   </body>

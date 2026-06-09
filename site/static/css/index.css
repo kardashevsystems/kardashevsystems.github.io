@@ -88,6 +88,13 @@ a {
   cursor: pointer;
 }
 
+.front-lang-toggle {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  z-index: 2;
+}
+
 .flip-card-front::before {
   content: "";
   position: absolute;
@@ -201,6 +208,12 @@ a {
   gap: 16px;
 }
 
+.panel-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .panel-title {
   margin: 6px 0 0;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
@@ -222,6 +235,23 @@ a {
 }
 
 .ghost-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lang-toggle {
+  appearance: none;
+  border: 1px solid rgba(225, 230, 235, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f3f3ee;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  letter-spacing: 0.08rem;
+  cursor: pointer;
+  min-width: 56px;
+}
+
+.lang-toggle:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -329,6 +359,12 @@ a {
   box-shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
 }
 
+.privacy-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+}
+
 html:has(.privacy-page),
 html:has(.privacy-page) body {
   overflow: auto;
@@ -425,8 +461,22 @@ html:has(.privacy-page) body::-webkit-scrollbar {
     padding: 28px;
   }
 
+  .front-lang-toggle {
+    top: 18px;
+    right: 18px;
+  }
+
   .panel {
     padding: 22px;
+  }
+
+  .panel-header {
+    flex-direction: column;
+  }
+
+  .panel-controls {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .panel-grid {

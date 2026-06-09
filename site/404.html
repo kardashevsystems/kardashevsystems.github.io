@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,17 +13,58 @@
   </head>
   <body class="privacy-page">
     <main class="privacy-wrapper">
+      <div class="privacy-header">
+        <button id="lang-toggle" class="lang-toggle" type="button">EN</button>
+      </div>
       <p class="eyebrow">Error 404</p>
-      <h1>Page not found</h1>
-      <p>
-        The page you were looking for could not be found. It may have been
-        moved, or the link may be out of date.
+      <h1 id="error-title">ページが見つかりません</h1>
+      <p id="error-copy">
+        お探しのページは見つかりませんでした。移動されたか、リンクが古くなっている可能性があります。
       </p>
 
       <footer class="privacy-footer">
-        <a href="index.html">← Return to Kardashev Systems</a>
+        <a id="return-link" href="index.html">← Kardashev Systems に戻る</a>
         <span>© 2026 Kardashev Systems</span>
       </footer>
     </main>
+    <script>
+      const langToggle = document.getElementById("lang-toggle");
+      const copy = {
+        ja: {
+          lang: "ja",
+          title: "Kardashev Systems — Page not found",
+          errorTitle: "ページが見つかりません",
+          errorCopy:
+            "お探しのページは見つかりませんでした。移動されたか、リンクが古くなっている可能性があります。",
+          returnLink: "← Kardashev Systems に戻る"
+        },
+        en: {
+          lang: "en",
+          title: "Kardashev Systems — Page not found",
+          errorTitle: "Page not found",
+          errorCopy:
+            "The page you were looking for could not be found. It may have been moved, or the link may be out of date.",
+          returnLink: "← Return to Kardashev Systems"
+        }
+      };
+
+      function setLanguage(lang) {
+        const selected = copy[lang];
+        document.documentElement.lang = selected.lang;
+        document.title = selected.title;
+        document.getElementById("error-title").textContent = selected.errorTitle;
+        document.getElementById("error-copy").textContent = selected.errorCopy;
+        document.getElementById("return-link").textContent = selected.returnLink;
+        langToggle.textContent = lang === "ja" ? "EN" : "JP";
+        localStorage.setItem("kardashev-lang", lang);
+      }
+
+      langToggle.addEventListener("click", function () {
+        const current = document.documentElement.lang === "ja" ? "ja" : "en";
+        setLanguage(current === "ja" ? "en" : "ja");
+      });
+
+      setLanguage(localStorage.getItem("kardashev-lang") || "ja");
+    </script>
   </body>
 </html>

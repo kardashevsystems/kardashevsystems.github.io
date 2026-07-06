@@ -1,0 +1,8 @@
+{
+  "name": "kardashev-systems-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rm -rf build && mkdir -p build && cp -R site/. build/"
+  }
+}

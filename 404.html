@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#2E3440" />
+    <title>404 — Kardashev Systems</title>
+    <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("kardashev-theme");
+        var theme =
+          stored ||
+          (window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <style>
+      .lost {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 1.2rem;
+        padding: 2rem;
+      }
+      .lost-code {
+        font-family: var(--font-display);
+        font-size: clamp(4.5rem, 16vw, 9rem);
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        color: var(--accent);
+      }
+      .lost p {
+        color: var(--text-muted);
+        max-width: 30em;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="lost">
+      <span class="lost-code">404</span>
+      <p>This page doesn't exist. ページが見つかりません。</p>
+      <a class="btn btn-ghost" href="/">kardashev.systems</a>
+    </main>
+  </body>
+</html>

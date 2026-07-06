@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Kardashev Systemsは、AIで労働を自動化し、経済効率を高め、文明をカルダシェフ・スケールの次の段階へ押し上げるための自律システムを構築しています。"
+    />
+    <meta name="theme-color" content="#2E3440" />
+    <meta name="author" content="Kardashev Systems" />
+    <link rel="canonical" href="https://kardashev.systems/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kardashev Systems" />
+    <meta property="og:title" content="Kardashev Systems — AI automation company" />
+    <meta
+      property="og:description"
+      content="AIで実務を引き受け、文明の加速を目指す自動化システム。"
+    />
+    <meta property="og:url" content="https://kardashev.systems/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Kardashev Systems — AI automation company" />
+    <meta
+      name="twitter:description"
+      content="AIで実務を引き受け、文明の加速を目指す自動化システム。"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="static/img/favicon.svg" />
+    <link rel="apple-touch-icon" href="static/img/favicon.svg" />
+
+    <title>Kardashev Systems — AI automation company</title>
+
+    <script>
+      (function () {
+        var stored = localStorage.getItem("kardashev-theme");
+        var theme =
+          stored ||
+          (window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <link rel="stylesheet" href="static/css/main.css" />
+    <script type="importmap">
+      { "imports": { "three": "./static/js/three.module.min.js" } }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skipLink">本文へスキップ</a>
+
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Kardashev Systems — home">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <ellipse
+              cx="32" cy="32" rx="27" ry="11"
+              fill="none" stroke="currentColor" stroke-width="3"
+              transform="rotate(-24 32 32)" opacity="0.65"
+            />
+            <circle cx="32" cy="32" r="12" fill="currentColor" />
+          </svg>
+          <span class="brand-name">KARDASHEV</span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <a href="#about" data-i18n="navAbout">会社概要</a>
+          <a href="#systems" data-i18n="navSystems">システム</a>
+          <a href="#scale" data-i18n="navScale">スケール</a>
+          <a href="#team" data-i18n="navTeam">チーム</a>
+          <a href="#contact" data-i18n="navContact">お問い合わせ</a>
+        </nav>
+
+        <div class="header-controls">
+          <button id="lang-toggle" class="control-btn lang-btn" type="button" aria-label="Switch language">
+            EN
+          </button>
+          <button id="theme-toggle" class="control-btn theme-btn" type="button" aria-label="Switch theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <line x1="12" y1="2.5" x2="12" y2="5" />
+                <line x1="12" y1="19" x2="12" y2="21.5" />
+                <line x1="2.5" y1="12" x2="5" y2="12" />
+                <line x1="19" y1="12" x2="21.5" y2="12" />
+                <line x1="5.3" y1="5.3" x2="7" y2="7" />
+                <line x1="17" y1="17" x2="18.7" y2="18.7" />
+                <line x1="5.3" y1="18.7" x2="7" y2="17" />
+                <line x1="17" y1="7" x2="18.7" y2="5.3" />
+              </g>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.2 14.5A8.6 8.6 0 0 1 9.5 3.8 8.6 8.6 0 1 0 20.2 14.5Z"
+                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            id="menu-toggle" class="control-btn menu-btn" type="button"
+            aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
+          >
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============================== HERO ============================== -->
+      <section class="hero" id="top">
+        <div class="hero-scene" id="hero-scene" aria-hidden="true"></div>
+
+        <div class="container hero-inner">
+          <p class="eyebrow reveal" data-i18n="heroEyebrow">
+            AI AUTOMATION COMPANY — TOKYO · SAN FRANCISCO
+          </p>
+          <h1 class="hero-title reveal" data-reveal-delay="1" data-i18n-html="heroTitle">
+            労働を自動化し、<br />文明を前進させる。
+          </h1>
+          <p class="hero-lede reveal" data-reveal-delay="2" data-i18n="heroLede">
+            Kardashev Systemsは、実務を自動化し、経済効率を高め、文明をカルダシェフ・スケールの次の段階へ押し上げる自律型AIシステムを構築しています。
+          </p>
+          <div class="hero-cta reveal" data-reveal-delay="3">
+            <a class="btn btn-primary" href="#contact" data-i18n="heroCta1">お問い合わせ</a>
+            <a class="btn btn-ghost" href="#about" data-i18n="heroCta2">詳しく見る</a>
+          </div>
+        </div>
+
+        <div class="hero-scroll" aria-hidden="true">
+          <span data-i18n="scrollHint">スクロール</span>
+          <span class="hero-scroll-line"></span>
+        </div>
+      </section>
+
+      <!-- ============================ STAT STRIP =========================== -->
+      <div class="stat-strip">
+        <div class="container stat-strip-inner">
+          <div class="stat reveal">
+            <span class="stat-value">K ≈ 0.73</span>
+            <span class="stat-label" data-i18n="statNow">現在の人類文明</span>
+          </div>
+          <div class="stat reveal" data-reveal-delay="1">
+            <span class="stat-value" data-i18n="statTargetValue">Type I</span>
+            <span class="stat-label" data-i18n="statTarget">惑星規模の効率へ</span>
+          </div>
+          <div class="stat reveal" data-reveal-delay="2">
+            <span class="stat-value" data-i18n="statHqValue">東京 · SF</span>
+            <span class="stat-label" data-i18n="statHq">拠点</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== ABOUT ============================== -->
+      <section class="section" id="about">
+        <div class="container section-grid">
+          <div class="section-head reveal">
+            <span class="section-index">01</span>
+            <h2 class="section-title" data-i18n="aboutTitle">会社概要</h2>
+          </div>
+          <div class="section-body">
+            <p class="prose-lg reveal" data-i18n="aboutP1">
+              Kardashev Systemsは、東京に本社を置きサンフランシスコにもプレゼンスを持つ日米スタートアップです。人間の労働を高度な自律システムで置き換えることに特化したAIオートメーション企業として、ワークフローを運用し、判断し、実務を遂行するソフトウェアを構築しています。
+            </p>
+            <p class="prose reveal" data-reveal-delay="1" data-i18n="aboutP2">
+              会社は意図的にリーンでステルス志向です。目指しているのは小さな改善ではなく、経済全体で仕事のあり方を再構成するシステムレベルのレバレッジです。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= MISSION ============================= -->
+      <section class="section section-alt" id="mission">
+        <div class="container">
+          <div class="mission-block">
+            <span class="section-index reveal">02 — <span data-i18n="missionTitle">ミッション</span></span>
+            <p class="mission-statement reveal" data-reveal-delay="1" data-i18n="missionStatement">
+              私たちのミッションは、AIであらゆる人間の労働を自動化することです。
+            </p>
+            <p class="prose mission-detail reveal" data-reveal-delay="2" data-i18n="missionP1">
+              単純作業だけでなく、分析、調整、意思決定、複雑なオペレーションまで。労働がソフトウェアになると、経済はより効率的になり、エネルギー、資源、人間の注意をより良く使えるようになります。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= SYSTEMS ============================= -->
+      <section class="section" id="systems">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-index">03</span>
+            <h2 class="section-title" data-i18n="systemsTitle">システム</h2>
+          </div>
+          <p class="section-lede reveal" data-reveal-delay="1" data-i18n="systemsLede">
+            見せるためのデモではなく、実運用に耐える自動化を構築しています。
+          </p>
+
+          <div class="card-grid">
+            <article class="card reveal">
+              <svg class="card-icon" viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M4 8h10M4 16h24M4 24h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" />
+                <circle cx="22" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <circle cx="26" cy="24" r="3" fill="none" stroke="currentColor" stroke-width="1.8" />
+              </svg>
+              <h3 data-i18n="sys1Title">ワークフロー自動化</h3>
+              <p data-i18n="sys1Desc">実際のプロセスを運用する、エンドツーエンドのAIワークフロー自動化。</p>
+            </article>
+
+            <article class="card reveal" data-reveal-delay="1">
+              <svg class="card-icon" viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 4v8m0 8v8M4 16h8m8 0h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" />
+                <circle cx="16" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
+              </svg>
+              <h3 data-i18n="sys2Title">自律的意思決定</h3>
+              <p data-i18n="sys2Desc">判断を伴って行動する、自律的な意思決定・計画システム。</p>
+            </article>
+
+            <article class="card reveal" data-reveal-delay="2">
+              <svg class="card-icon" viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M4 26L12 16l6 5 10-13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                <path d="M22 8h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+              <h3 data-i18n="sys3Title">オペレーショナル・インテリジェンス</h3>
+              <p data-i18n="sys3Desc">稼働中のシステムを横断する、運用インテリジェンスと予測。</p>
+            </article>
+
+            <article class="card reveal" data-reveal-delay="3">
+              <svg class="card-icon" viewBox="0 0 32 32" aria-hidden="true">
+                <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M16 9v7l5 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+              <h3 data-i18n="sys4Title">経済効率の最適化</h3>
+              <p data-i18n="sys4Desc">システム規模での経済効率の最適化。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== SCALE ============================== -->
+      <section class="section section-alt" id="scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-index">04</span>
+            <h2 class="section-title" data-i18n="scaleTitle">カルダシェフ・スケール</h2>
+          </div>
+          <p class="section-lede reveal" data-reveal-delay="1" data-i18n="scaleP1">
+            私たちは、カルダシェフ・スケールを文明の方向性を示すフレームワークとして本気で捉えています。文明は、より多くのエネルギーを効果的に利用することで前進し、経済の自動化はその最短経路のひとつです。
+          </p>
+
+          <div class="kscale reveal" data-reveal-delay="2" role="img" aria-label="Kardashev scale: humanity today is at approximately 0.73, between Type 0 and Type I">
+            <div class="kscale-track">
+              <div class="kscale-progress"></div>
+              <div class="kscale-marker" style="left: 24.3%">
+                <span class="kscale-marker-dot"></span>
+                <span class="kscale-marker-label" data-i18n="scaleMarker">現在 K ≈ 0.73</span>
+              </div>
+            </div>
+            <div class="kscale-ticks">
+              <span>0</span><span>I</span><span>II</span><span>III</span>
+            </div>
+          </div>
+
+          <div class="type-grid">
+            <article class="type-card reveal">
+              <span class="type-num">I</span>
+              <h3 data-i18n="type1Title">惑星文明</h3>
+              <p data-i18n="type1Desc">惑星が利用できるエネルギーを完全に活用する文明。無駄を減らし、調整を加速するAIシステムは、そこへ到達するためのインフラの一部です。</p>
+            </article>
+            <article class="type-card reveal" data-reveal-delay="1">
+              <span class="type-num">II</span>
+              <h3 data-i18n="type2Title">恒星文明</h3>
+              <p data-i18n="type2Desc">恒星のエネルギーを活用する文明。惑星規模の効率は、その前提条件です。</p>
+            </article>
+            <article class="type-card reveal" data-reveal-delay="2">
+              <span class="type-num">III</span>
+              <h3 data-i18n="type3Title">銀河文明</h3>
+              <p data-i18n="type3Desc">銀河規模のエネルギーを扱う文明。方向性としての北極星です。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ PRINCIPLES =========================== -->
+      <section class="section" id="principles">
+        <div class="container section-grid">
+          <div class="section-head reveal">
+            <span class="section-index">05</span>
+            <h2 class="section-title" data-i18n="principlesTitle">原則</h2>
+          </div>
+          <div class="section-body">
+            <ol class="principle-list">
+              <li class="reveal"><span data-i18n="principle1">文明レベルの大胆な野心</span></li>
+              <li class="reveal" data-reveal-delay="1"><span data-i18n="principle2">実運用システムにおける技術的卓越性</span></li>
+              <li class="reveal" data-reveal-delay="2"><span data-i18n="principle3">見せるだけのデモではなく、複利で効く自動化</span></li>
+              <li class="reveal" data-reveal-delay="3"><span data-i18n="principle4">ステルス、集中、長期的時間軸</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== TEAM =============================== -->
+      <section class="section section-alt" id="team">
+        <div class="container section-grid">
+          <div class="section-head reveal">
+            <span class="section-index">06</span>
+            <h2 class="section-title" data-i18n="teamTitle">チーム</h2>
+          </div>
+          <div class="section-body">
+            <p class="prose-lg reveal" data-i18n="teamP1">
+              私たちは、アイビーリーグのトップ研究機関やシリコンバレーの主要テクノロジー企業出身の、経験豊富な研究者とエンジニアによる専任チームを擁しています。
+            </p>
+            <p class="prose reveal" data-reveal-delay="1" data-i18n="teamP2">
+              拠点は東京ですが、チームは国際的です。業界のベテランと実績ある科学者が、国境をまたいで協働しています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= CONTACT ============================= -->
+      <section class="section contact-section" id="contact">
+        <div class="container contact-inner">
+          <span class="section-index reveal">07 — <span data-i18n="contactTitle">お問い合わせ</span></span>
+          <p class="contact-lede reveal" data-reveal-delay="1" data-i18n="contactP1">
+            事業提携、パートナーシップ、あるいはAIオートメーションに関する真剣なご相談は、メールでご連絡ください。
+          </p>
+          <a class="contact-mail reveal" data-reveal-delay="2" href="mailto:mail@kardashev.systems">
+            mail@kardashev.systems
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19L19 5M9 5h10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <ellipse cx="32" cy="32" rx="27" ry="11" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(-24 32 32)" opacity="0.65" />
+            <circle cx="32" cy="32" r="12" fill="currentColor" />
+          </svg>
+          <span>KARDASHEV SYSTEMS</span>
+        </div>
+        <div class="footer-meta">
+          <span>© <span id="year">2026</span> Kardashev Systems</span>
+          <span class="footer-sep" aria-hidden="true">·</span>
+          <span data-i18n="footerHq">東京 · サンフランシスコ</span>
+          <span class="footer-sep" aria-hidden="true">·</span>
+          <a href="mailto:mail@kardashev.systems">mail@kardashev.systems</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+    <script type="module" src="static/js/scene.js"></script>
+  </body>
+</html>

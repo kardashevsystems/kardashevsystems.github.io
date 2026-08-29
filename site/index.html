@@ -19,7 +19,14 @@
       content="AIで実務を引き受け、文明の加速を目指す自動化システム。"
     />
     <meta property="og:url" content="https://kardashev.systems/" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://kardashev.systems/static/img/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kardashev Systems" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://kardashev.systems/static/img/og.png" />
     <meta name="twitter:title" content="Kardashev Systems — AI automation company" />
     <meta
       name="twitter:description"
@@ -44,8 +51,19 @@
     </script>
 
     <link rel="stylesheet" href="static/css/main.css" />
-    <script type="importmap">
-      { "imports": { "three": "./static/js/three.module.min.js" } }
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kardashev Systems",
+        "url": "https://kardashev.systems",
+        "email": "mail@kardashev.systems",
+        "location": [
+          { "@type": "Place", "name": "Tokyo" },
+          { "@type": "Place", "name": "San Francisco" }
+        ]
+      }
     </script>
   </head>
 
@@ -113,7 +131,21 @@
     <main id="main">
       <!-- ============================== HERO ============================== -->
       <section class="hero" id="top">
-        <div class="hero-scene" id="hero-scene" aria-hidden="true"></div>
+        <div class="hero-scene" id="hero-scene" aria-hidden="true">
+          <svg class="hero-orbits" viewBox="0 0 400 400" fill="none">
+            <g class="orbit-spin orbit-1">
+              <ellipse cx="200" cy="200" rx="168" ry="58" transform="rotate(-24 200 200)" />
+            </g>
+            <g class="orbit-spin orbit-2">
+              <ellipse cx="200" cy="200" rx="150" ry="52" transform="rotate(28 200 200)" />
+            </g>
+            <g class="orbit-spin orbit-3">
+              <ellipse cx="200" cy="200" rx="128" ry="44" transform="rotate(-70 200 200)" />
+            </g>
+            <circle class="orbit-glow" cx="200" cy="200" r="28" />
+            <circle class="orbit-core" cx="200" cy="200" r="13" />
+          </svg>
+        </div>
 
         <div class="container hero-inner">
           <p class="eyebrow reveal" data-i18n="heroEyebrow">
@@ -357,6 +389,5 @@
     </footer>
 
     <script src="static/js/main.js"></script>
-    <script type="module" src="static/js/scene.js"></script>
   </body>
 </html>

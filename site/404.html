@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ja" data-theme="dark" data-page="404">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#2E3440" />
+    <meta name="author" content="Kardashev Systems" />
     <title>404 — Kardashev Systems</title>
     <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
     <script>
@@ -19,36 +20,91 @@
       })();
     </script>
     <link rel="stylesheet" href="/static/css/main.css" />
-    <style>
-      .lost {
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 1.2rem;
-        padding: 2rem;
-      }
-      .lost-code {
-        font-family: var(--font-display);
-        font-size: clamp(4.5rem, 16vw, 9rem);
-        font-weight: 300;
-        letter-spacing: -0.04em;
-        line-height: 1;
-        color: var(--accent);
-      }
-      .lost p {
-        color: var(--text-muted);
-        max-width: 30em;
-      }
-    </style>
   </head>
+
   <body>
-    <main class="lost">
+    <a class="skip-link" href="#main" data-i18n="skipLink">本文へスキップ</a>
+
+    <header class="site-header scrolled" id="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Kardashev Systems — home">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <ellipse
+              cx="32" cy="32" rx="27" ry="11"
+              fill="none" stroke="currentColor" stroke-width="3"
+              transform="rotate(-24 32 32)" opacity="0.65"
+            />
+            <circle cx="32" cy="32" r="12" fill="currentColor" />
+          </svg>
+          <span class="brand-name">KARDASHEV</span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <a href="/" data-i18n="navHome">ホーム</a>
+        </nav>
+
+        <div class="header-controls">
+          <button id="lang-toggle" class="control-btn lang-btn" type="button" aria-label="Switch language">
+            EN
+          </button>
+          <button id="theme-toggle" class="control-btn theme-btn" type="button" aria-label="Switch theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <line x1="12" y1="2.5" x2="12" y2="5" />
+                <line x1="12" y1="19" x2="12" y2="21.5" />
+                <line x1="2.5" y1="12" x2="5" y2="12" />
+                <line x1="19" y1="12" x2="21.5" y2="12" />
+                <line x1="5.3" y1="5.3" x2="7" y2="7" />
+                <line x1="17" y1="17" x2="18.7" y2="18.7" />
+                <line x1="5.3" y1="18.7" x2="7" y2="17" />
+                <line x1="17" y1="7" x2="18.7" y2="5.3" />
+              </g>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.2 14.5A8.6 8.6 0 0 1 9.5 3.8 8.6 8.6 0 1 0 20.2 14.5Z"
+                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            id="menu-toggle" class="control-btn menu-btn" type="button"
+            aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
+          >
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="lost">
       <span class="lost-code">404</span>
-      <p>This page doesn't exist. ページが見つかりません。</p>
-      <a class="btn btn-ghost" href="/">kardashev.systems</a>
+      <h1 class="section-title" data-i18n="notFoundTitle">ページが見つかりません</h1>
+      <p class="lost-lede" data-i18n="notFoundLede">このアドレスにはページがありません。</p>
+      <a class="btn btn-primary" href="/" data-i18n="notFoundHome">ホームへ戻る</a>
     </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <ellipse cx="32" cy="32" rx="27" ry="11" fill="none" stroke="currentColor" stroke-width="3" transform="rotate(-24 32 32)" opacity="0.65" />
+            <circle cx="32" cy="32" r="12" fill="currentColor" />
+          </svg>
+          <span>KARDASHEV SYSTEMS</span>
+        </div>
+        <div class="footer-meta">
+          <span>© <span id="year">2026</span> Kardashev Systems</span>
+          <span class="footer-sep" aria-hidden="true">·</span>
+          <span data-i18n="footerHq">東京 · サンフランシスコ</span>
+          <span class="footer-sep" aria-hidden="true">·</span>
+          <a href="mailto:mail@kardashev.systems">mail@kardashev.systems</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
   </body>
 </html>

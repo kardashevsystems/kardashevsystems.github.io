@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Kardashev Systems">
+  <rect width="1200" height="630" fill="#2E3440"/>
+  <g transform="translate(600 232)">
+    <g transform="scale(2.625) translate(-32 -32)">
+      <ellipse cx="32" cy="32" rx="27" ry="11" fill="none" stroke="#81A1C1" stroke-width="3.2" transform="rotate(-24 32 32)"/>
+      <circle cx="32" cy="32" r="12" fill="#88C0D0"/>
+    </g>
+  </g>
+  <text x="600" y="418" text-anchor="middle" fill="#ECEFF4" font-family="Space Grotesk, Helvetica, Arial, sans-serif" font-weight="700" font-size="42" letter-spacing="0.24em">KARDASHEV SYSTEMS</text>
+</svg>

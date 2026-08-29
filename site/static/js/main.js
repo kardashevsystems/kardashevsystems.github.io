@@ -18,10 +18,12 @@
     );
   }
 
-  themeToggle.addEventListener("click", function () {
-    var current = document.documentElement.getAttribute("data-theme");
-    applyTheme(current === "dark" ? "light" : "dark");
-  });
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var current = document.documentElement.getAttribute("data-theme");
+      applyTheme(current === "dark" ? "light" : "dark");
+    });
+  }
 
   /* ------------------------------ i18n ------------------------------- */
 
@@ -100,7 +102,12 @@
       contactTitle: "お問い合わせ",
       contactP1:
         "事業提携、パートナーシップ、あるいはAIオートメーションに関する真剣なご相談は、メールでご連絡ください。",
-      footerHq: "東京 · サンフランシスコ"
+      footerHq: "東京 · サンフランシスコ",
+      navHome: "ホーム",
+      notFoundTitle: "ページが見つかりません",
+      notFoundLede: "このアドレスにはページがありません。",
+      notFoundHome: "ホームへ戻る",
+      notFoundDocTitle: "404 — Kardashev Systems"
     },
     en: {
       title: "Kardashev Systems — AI automation company",
@@ -174,14 +181,22 @@
       contactTitle: "Contact",
       contactP1:
         "For business inquiries, partnerships, or serious conversations about AI automation, reach us by email.",
-      footerHq: "Tokyo · San Francisco"
+      footerHq: "Tokyo · San Francisco",
+      navHome: "Home",
+      notFoundTitle: "Page not found",
+      notFoundLede: "This page doesn’t exist.",
+      notFoundHome: "Back to home",
+      notFoundDocTitle: "404 — Kardashev Systems"
     }
   };
 
   function setLanguage(lang) {
     var dict = copy[lang];
     document.documentElement.lang = lang;
-    document.title = dict.title;
+    var is404 = document.documentElement.getAttribute("data-page") === "404";
+    document.title = is404
+      ? dict.notFoundDocTitle || "404 — Kardashev Systems"
+      : dict.title;
 
     var desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", dict.metaDescription);
@@ -196,28 +211,52 @@
       if (dict[key] !== undefined) el.innerHTML = dict[key];
     });
 
-    langToggle.textContent = lang === "ja" ? "EN" : "日本語";
-    langToggle.setAttribute("aria-label", dict.langLabel);
-    themeToggle.setAttribute("aria-label", dict.themeLabel);
+    if (langToggle) {
+      langToggle.textContent = lang === "ja" ? "EN" : "日本語";
+      langToggle.setAttribute("aria-label", dict.langLabel);
+    }
+    if (themeToggle) themeToggle.setAttribute("aria-label", dict.themeLabel);
     var menuBtn = document.getElementById("menu-toggle");
     if (menuBtn) menuBtn.setAttribute("aria-label", dict.menuLabel);
 
     localStorage.setItem(LANG_KEY, lang);
   }
 
-  langToggle.addEventListener("click", function () {
-    var current = document.documentElement.lang === "ja" ? "ja" : "en";
-    setLanguage(current === "ja" ? "en" : "ja");
-  });
+  if (langToggle) {
+    langToggle.addEventListener("click", function () {
+      var current = document.documentElement.lang === "ja" ? "ja" : "en";
+      setLanguage(current === "ja" ? "en" : "ja");
+    });
+  }
 
-  setLanguage(localStorage.getItem(LANG_KEY) || "ja");
+  function browserPrefersJapanese() {
+    var list = [];
+    if (navigator.languages && navigator.languages.length) {
+      list = Array.prototype.slice.call(navigator.languages);
+    } else if (navigator.language) {
+      list = [navigator.language];
+    }
+    for (var i = 0; i < list.length; i++) {
+      var tag = String(list[i] || "").toLowerCase().replace(/_/g, "-");
+      if (tag === "ja" || tag.indexOf("ja-") === 0) return true;
+    }
+    return false;
+  }
+
+  function initialLanguage() {
+    var stored = localStorage.getItem(LANG_KEY);
+    if (stored === "ja" || stored === "en") return stored;
+    return browserPrefersJapanese() ? "ja" : "en";
+  }
+
+  setLanguage(initialLanguage());
 
   /* --------------------------- Header state --------------------------- */
 
   var header = document.getElementById("site-header");
 
   function onScroll() {
-    header.classList.toggle("scrolled", window.scrollY > 8);
+    if (header) header.classList.toggle("scrolled", window.scrollY > 8);
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -228,17 +267,19 @@
   var menuToggle = document.getElementById("menu-toggle");
   var nav = document.getElementById("site-nav");
 
-  menuToggle.addEventListener("click", function () {
-    var open = nav.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", String(open));
-  });
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
 
-  nav.addEventListener("click", function (event) {
-    if (event.target.tagName === "A") {
-      nav.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-    }
-  });
+    nav.addEventListener("click", function (event) {
+      if (event.target.tagName === "A") {
+        nav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 
   /* ------------------------- Reveal on scroll ------------------------- */
 
@@ -300,15 +341,17 @@
 
   var heroScene = document.getElementById("hero-scene");
 
-  window.addEventListener(
-    "scroll",
-    function () {
-      var h = window.innerHeight || 1;
-      var t = Math.min(window.scrollY / (h * 0.85), 1);
-      heroScene.style.opacity = String(1 - t);
-    },
-    { passive: true }
-  );
+  if (heroScene) {
+    window.addEventListener(
+      "scroll",
+      function () {
+        var h = window.innerHeight || 1;
+        var t = Math.min(window.scrollY / (h * 0.85), 1);
+        heroScene.style.opacity = String(1 - t);
+      },
+      { passive: true }
+    );
+  }
 
   /* ------------------------------ Footer ------------------------------ */
 
